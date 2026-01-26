@@ -7,6 +7,7 @@ import { Stats } from './components/Stats';
 import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
 import { CustomCursor } from './components/CustomCursor';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import './i18n';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Stats />
       <CTA />
       <Footer />
+      <SpeedInsights />
     </div>
   );
 }
