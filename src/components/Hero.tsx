@@ -5,7 +5,8 @@ import { useTranslation } from 'react-i18next';
 
 type Platform = 'windows' | 'mac' | 'linux';
 
-const VERSION = '1.5.2';
+import { VERSION } from '../constants';
+
 const GITHUB_REPO = 'xxomega2077xx/softdo';
 
 // Typewriter component
