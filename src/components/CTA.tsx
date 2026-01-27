@@ -37,7 +37,7 @@ export const CTA = () => {
                 <Download size={18} />
                 {t('cta.button')}
                 <div className="w-px h-4 bg-black/10 mx-1" />
-                <span className="text-xs opacity-50 font-normal">v1.5.1</span>
+                <span className="text-xs opacity-50 font-normal">v1.5.2</span>
               </button>
 
               {/* Dropdown Menu */}
