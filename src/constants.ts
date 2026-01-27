@@ -1,4 +1,4 @@
-export const VERSION = '1.5.2';
+export const VERSION = '1.6.0';
 export const GITHUB_REPO = 'xxomega2077xx/softdo';
 
 export const getDownloadLink = (platform: 'windows' | 'mac' | 'linux') => {
