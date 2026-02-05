@@ -29,9 +29,7 @@ export const Navbar = () => {
       `}>
         {/* Logo */}
         <div className="flex items-center gap-2 cursor-pointer group">
-          <div className="w-8 h-8 rounded-lg bg-[var(--text-primary)] flex items-center justify-center text-[var(--bg-primary)]">
-             <span className="font-bold text-lg font-display">S</span>
-          </div>
+          <img src="/softdo-icon.png" alt="SoftDo" className="w-8 h-8 rounded-lg" />
           <TextScramble text={t('softdo')} className="font-semibold text-lg tracking-tight font-display" />
         </div>
 

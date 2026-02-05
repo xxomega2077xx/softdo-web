@@ -11,9 +11,7 @@ export const Footer = () => {
           
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded bg-[var(--text-muted)] flex items-center justify-center text-[var(--bg-primary)] opacity-80">
-               <span className="font-bold text-xs font-display">S</span>
-            </div>
+            <img src="/softdo-icon.png" alt="SoftDo" className="w-6 h-6 rounded opacity-80" />
             <span className="font-medium text-sm">SoftDo</span>
           </div>
 
