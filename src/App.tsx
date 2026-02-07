@@ -17,10 +17,18 @@ function App() {
       <CustomCursor />
       <Navbar />
       <Hero />
+
+      {/* Gradient divider */}
+      <div className="section-divider max-w-4xl mx-auto" />
+
       <ProductShowcase />
       <FeatureShowcase />
       <WorkflowSection />
       <Stats />
+
+      {/* Gradient divider */}
+      <div className="section-divider max-w-4xl mx-auto" />
+
       <CTA />
       <Footer />
     </div>
