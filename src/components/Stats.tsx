@@ -24,17 +24,14 @@ const StatItem = ({ value, label, suffix = '', delay = 0 }: { value: number; lab
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, delay }}
+      transition={{ duration: 0.5, delay }}
       className="text-center group relative"
     >
-      {/* Hover glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-indigo-500/[0.05] to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl pointer-events-none" />
-
       <div className="relative">
-        <div className="text-5xl md:text-7xl font-bold mb-3 tracking-tighter tabular-nums bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">
+        <div className="font-serif text-5xl md:text-7xl font-medium mb-3 tracking-tight tabular-nums text-[var(--text-primary)]">
           {displayValue}{suffix}
         </div>
         <div className="text-[var(--text-muted)] font-medium text-sm uppercase tracking-[0.2em]">{label}</div>
@@ -46,9 +43,6 @@ const StatItem = ({ value, label, suffix = '', delay = 0 }: { value: number; lab
 export const Stats = () => {
   return (
     <section className="relative py-32 px-6">
-      {/* Subtle background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.01] to-transparent pointer-events-none" />
-
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           <StatItem value={10} label="Downloads" suffix="+" delay={0} />

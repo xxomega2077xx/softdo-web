@@ -12,7 +12,7 @@ import './i18n';
 
 function App() {
   return (
-    <div className="min-h-screen text-white selection:bg-indigo-500/30">
+    <div className="min-h-screen text-[var(--text-primary)] selection:bg-[var(--accent-dim)]">
       <SpeedInsights />
       <CustomCursor />
       <Navbar />

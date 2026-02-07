@@ -1,6 +1,6 @@
 import { useInView, motion } from 'framer-motion';
 import { Pin, Layers, Wifi } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const FeatureShowcase = () => {
@@ -11,38 +11,29 @@ export const FeatureShowcase = () => {
       icon: <Pin size={24} />,
       title: t('features.pin'),
       description: t('features.pin_desc'),
-      className: "from-violet-500/20 to-fuchsia-500/10",
-      iconGlow: "group-hover:shadow-[0_0_25px_rgba(139,92,246,0.5)]",
-      iconBg: "group-hover:bg-violet-500/20",
-      accentColor: "rgba(139, 92, 246, 0.5)",
+      accentBg: "bg-orange-50",
+      accentText: "text-[var(--accent)]",
     },
     {
       icon: <Layers size={24} />,
       title: t('features.glass'),
       description: t('features.glass_desc'),
-      className: "from-cyan-500/20 to-blue-500/10",
-      iconGlow: "group-hover:shadow-[0_0_25px_rgba(34,211,238,0.5)]",
-      iconBg: "group-hover:bg-cyan-500/20",
-      accentColor: "rgba(34, 211, 238, 0.5)",
+      accentBg: "bg-blue-50",
+      accentText: "text-blue-600",
     },
     {
       icon: <Wifi size={24} className="rotate-45" />,
       title: t('features.privacy'),
       description: t('features.privacy_desc'),
-      className: "from-emerald-500/20 to-teal-500/10",
-      iconGlow: "group-hover:shadow-[0_0_25px_rgba(16,185,129,0.5)]",
-      iconBg: "group-hover:bg-emerald-500/20",
-      accentColor: "rgba(16, 185, 129, 0.5)",
+      accentBg: "bg-emerald-50",
+      accentText: "text-emerald-600",
     }
   ];
 
   return (
-    <section className="relative py-40 px-6">
-      {/* Section Glow Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-br from-violet-600/[0.08] to-cyan-600/[0.06] blur-[120px] rounded-full pointer-events-none animate-pulse-glow" />
-
+    <section className="relative py-32 px-6">
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="mb-24 text-center">
+        <div className="mb-20 text-center">
           <SectionHeading>
             {t('features.sectionTitle')} <br />
             <span className="text-[var(--text-muted)]">{t('features.sectionSubtitle')}</span>
@@ -53,26 +44,25 @@ export const FeatureShowcase = () => {
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
+              transition={{ duration: 0.5, delay: idx * 0.12 }}
+              className="group relative h-full overflow-hidden rounded-2xl border border-[var(--border)] bg-white p-8 transition-all duration-300 hover:border-[var(--border-hover)] hover:shadow-[0_8px_30px_-8px_rgba(0,0,0,0.08)]"
             >
-              <SpotlightCard className={feature.className} accentColor={feature.accentColor}>
-                <div className="relative z-10 h-full flex flex-col justify-between">
-                  <div>
-                    <div className={`w-14 h-14 rounded-2xl bg-[var(--bg-tertiary)] border border-[var(--border)] flex items-center justify-center mb-6 text-white transition-all duration-500 ${feature.iconGlow} ${feature.iconBg}`}>
-                      {feature.icon}
-                    </div>
-                    <h3 className="text-2xl font-medium mb-4 tracking-tight text-[var(--text-primary)]">
-                      {feature.title}
-                    </h3>
-                    <p className="text-[var(--text-secondary)] leading-relaxed text-base">
-                      {feature.description}
-                    </p>
+              <div className="relative z-10 h-full flex flex-col justify-between">
+                <div>
+                  <div className={`w-14 h-14 rounded-2xl ${feature.accentBg} flex items-center justify-center mb-6 ${feature.accentText} transition-all duration-300`}>
+                    {feature.icon}
                   </div>
+                  <h3 className="font-serif text-2xl font-medium mb-3 tracking-tight text-[var(--text-primary)]">
+                    {feature.title}
+                  </h3>
+                  <p className="text-[var(--text-secondary)] leading-relaxed text-base">
+                    {feature.description}
+                  </p>
                 </div>
-              </SpotlightCard>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -86,57 +76,10 @@ const SectionHeading = ({ children }: { children: React.ReactNode }) => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <h2 ref={ref} className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter leading-[1.05]">
-      <div className={`transition-all duration-1000 transform ${isInView ? 'translate-y-0 opacity-100 blur-0' : 'translate-y-12 opacity-0 blur-10'} `}>
+    <h2 ref={ref} className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.1]">
+      <div className={`transition-all duration-700 transform ${isInView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
         {children}
       </div>
     </h2>
-  );
-};
-
-const SpotlightCard = ({ children, className = "", accentColor }: { children: React.ReactNode, className?: string, accentColor?: string }) => {
-  const divRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!divRef.current) return;
-    const rect = divRef.current.getBoundingClientRect();
-    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
-
-  return (
-    <div
-      ref={divRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="relative h-full overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--bg-secondary)] p-8 transition-all duration-500 hover:border-[var(--border-hover)] group hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)]"
-    >
-      {/* Spotlight follow */}
-      <div
-        className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        style={{
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,0.06), transparent 40%)`,
-        }}
-      />
-      {/* Color gradient follow */}
-      <div
-        className={`pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-gradient-to-r ${className} blur-3xl`}
-        style={{
-           maskImage: `radial-gradient(300px circle at ${position.x}px ${position.y}px, black, transparent)`,
-           WebkitMaskImage: `radial-gradient(300px circle at ${position.x}px ${position.y}px, black, transparent)`,
-        }}
-      />
-      {/* Top border accent glow */}
-      <div
-        className="absolute top-0 left-0 right-0 h-px transition-opacity duration-500"
-        style={{
-          opacity: isHovered ? 1 : 0,
-          background: `linear-gradient(90deg, transparent, ${accentColor || 'rgba(255,255,255,0.3)'}, transparent)`,
-        }}
-      />
-      {children}
-    </div>
   );
 };
