@@ -11,41 +11,41 @@ export const FeatureShowcase = () => {
       icon: <Pin size={24} />,
       title: t('features.pin'),
       description: t('features.pin_desc'),
-      className: "from-violet-500/20 to-fuchsia-500/10",
-      iconGlow: "group-hover:shadow-[0_0_25px_rgba(139,92,246,0.5)]",
-      iconBg: "group-hover:bg-violet-500/20",
-      accentColor: "rgba(139, 92, 246, 0.5)",
+      className: "from-[#D4714E]/20 to-[#D9A962]/10",
+      iconGlow: "group-hover:shadow-[0_0_25px_rgba(212,113,78,0.5)]",
+      iconBg: "group-hover:bg-[#D4714E]/20",
+      accentColor: "rgba(212, 113, 78, 0.5)",
     },
     {
       icon: <Layers size={24} />,
       title: t('features.glass'),
       description: t('features.glass_desc'),
-      className: "from-cyan-500/20 to-blue-500/10",
-      iconGlow: "group-hover:shadow-[0_0_25px_rgba(34,211,238,0.5)]",
-      iconBg: "group-hover:bg-cyan-500/20",
-      accentColor: "rgba(34, 211, 238, 0.5)",
+      className: "from-[#D9A962]/20 to-[#D4714E]/10",
+      iconGlow: "group-hover:shadow-[0_0_25px_rgba(217,169,98,0.5)]",
+      iconBg: "group-hover:bg-[#D9A962]/20",
+      accentColor: "rgba(217, 169, 98, 0.5)",
     },
     {
       icon: <Wifi size={24} className="rotate-45" />,
       title: t('features.privacy'),
       description: t('features.privacy_desc'),
-      className: "from-emerald-500/20 to-teal-500/10",
-      iconGlow: "group-hover:shadow-[0_0_25px_rgba(16,185,129,0.5)]",
-      iconBg: "group-hover:bg-emerald-500/20",
-      accentColor: "rgba(16, 185, 129, 0.5)",
+      className: "from-[#E8956F]/20 to-[#D4714E]/10",
+      iconGlow: "group-hover:shadow-[0_0_25px_rgba(232,149,111,0.5)]",
+      iconBg: "group-hover:bg-[#E8956F]/20",
+      accentColor: "rgba(232, 149, 111, 0.5)",
     }
   ];
 
   return (
     <section className="relative py-40 px-6">
       {/* Section Glow Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-br from-violet-600/[0.08] to-cyan-600/[0.06] blur-[120px] rounded-full pointer-events-none animate-pulse-glow" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-br from-[#D4714E]/[0.06] to-[#D9A962]/[0.04] blur-[140px] rounded-full pointer-events-none animate-breathe" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-24 text-center">
           <SectionHeading>
             {t('features.sectionTitle')} <br />
-            <span className="text-[var(--text-muted)]">{t('features.sectionSubtitle')}</span>
+            <span className="text-gradient-warm">{t('features.sectionSubtitle')}</span>
           </SectionHeading>
         </div>
 
@@ -61,13 +61,13 @@ export const FeatureShowcase = () => {
               <SpotlightCard className={feature.className} accentColor={feature.accentColor}>
                 <div className="relative z-10 h-full flex flex-col justify-between">
                   <div>
-                    <div className={`w-14 h-14 rounded-2xl bg-[var(--bg-tertiary)] border border-[var(--border)] flex items-center justify-center mb-6 text-white transition-all duration-500 ${feature.iconGlow} ${feature.iconBg}`}>
+                    <div className={`w-14 h-14 rounded-2xl bg-[#1C1917] border border-[rgba(255,247,237,0.08)] flex items-center justify-center mb-6 text-[#D6D3D1] transition-all duration-500 ${feature.iconGlow} ${feature.iconBg}`}>
                       {feature.icon}
                     </div>
-                    <h3 className="text-2xl font-medium mb-4 tracking-tight text-[var(--text-primary)]">
+                    <h3 className="text-2xl font-medium mb-4 tracking-tight text-[#FAF9F7]">
                       {feature.title}
                     </h3>
-                    <p className="text-[var(--text-secondary)] leading-relaxed text-base">
+                    <p className="text-[#A8A29E] leading-relaxed text-base">
                       {feature.description}
                     </p>
                   </div>
@@ -111,13 +111,13 @@ const SpotlightCard = ({ children, className = "", accentColor }: { children: Re
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative h-full overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--bg-secondary)] p-8 transition-all duration-500 hover:border-[var(--border-hover)] group hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)]"
+      className="relative h-full overflow-hidden rounded-3xl border border-[rgba(255,247,237,0.08)] bg-[#121110] p-8 transition-all duration-500 hover:border-[rgba(255,247,237,0.16)] group hover:shadow-[0_24px_60px_-12px_rgba(0,0,0,0.5)]"
     >
       {/* Spotlight follow */}
       <div
         className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         style={{
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,0.06), transparent 40%)`,
+          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(212,113,78,0.04), transparent 40%)`,
         }}
       />
       {/* Color gradient follow */}
@@ -133,7 +133,7 @@ const SpotlightCard = ({ children, className = "", accentColor }: { children: Re
         className="absolute top-0 left-0 right-0 h-px transition-opacity duration-500"
         style={{
           opacity: isHovered ? 1 : 0,
-          background: `linear-gradient(90deg, transparent, ${accentColor || 'rgba(255,255,255,0.3)'}, transparent)`,
+          background: `linear-gradient(90deg, transparent, ${accentColor || 'rgba(212,113,78,0.3)'}, transparent)`,
         }}
       />
       {children}

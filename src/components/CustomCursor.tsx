@@ -25,7 +25,7 @@ export const CustomCursor = () => {
 
   return (
     <>
-      {/* Glossy White Cursor */}
+      {/* Warm Glossy Cursor */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9999]"
         style={{
@@ -42,14 +42,13 @@ export const CustomCursor = () => {
           }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
         >
-          {/* Core - Solid White */}
-          <div className="w-3 h-3 bg-white rounded-full shadow-[0_0_10px_2px_rgba(255,255,255,0.3)] backdrop-blur-sm" />
+          {/* Core - Warm White */}
+          <div className="w-3 h-3 bg-[#FAF9F7] rounded-full shadow-[0_0_10px_2px_rgba(212,113,78,0.2)] backdrop-blur-sm" />
           
-          {/* Glossy Glow / Halo - "Runrun" (Moist/Glossy) feel */}
-          <div className="absolute inset-0 -m-1 rounded-full bg-white/20 blur-md" />
+          {/* Warm Glow Halo */}
+          <div className="absolute inset-0 -m-1 rounded-full bg-[#D4714E]/15 blur-md" />
         </motion.div>
       </motion.div>
     </>
   );
 };
-

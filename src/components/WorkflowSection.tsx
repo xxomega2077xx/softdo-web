@@ -15,8 +15,8 @@ export const WorkflowSection = () => {
       title: t('workflow.step1'),
       desc: t('workflow.step1_desc'),
       delay: 0.1,
-      color: 'from-indigo-500 to-violet-500',
-      glow: 'rgba(99, 102, 241, 0.4)',
+      color: 'from-[#D4714E] to-[#D9A962]',
+      glow: 'rgba(212, 113, 78, 0.4)',
     },
     {
       id: 2,
@@ -24,8 +24,8 @@ export const WorkflowSection = () => {
       title: t('workflow.step2'),
       desc: t('workflow.step2_desc'),
       delay: 0.3,
-      color: 'from-violet-500 to-purple-500',
-      glow: 'rgba(139, 92, 246, 0.4)',
+      color: 'from-[#D9A962] to-[#E8956F]',
+      glow: 'rgba(217, 169, 98, 0.4)',
     },
     {
       id: 3,
@@ -33,8 +33,8 @@ export const WorkflowSection = () => {
       title: t('workflow.step3'),
       desc: t('workflow.step3_desc'),
       delay: 0.5,
-      color: 'from-purple-500 to-fuchsia-500',
-      glow: 'rgba(168, 85, 247, 0.4)',
+      color: 'from-[#E8956F] to-[#D4714E]',
+      glow: 'rgba(232, 149, 111, 0.4)',
     }
   ];
 
@@ -44,7 +44,7 @@ export const WorkflowSection = () => {
       <div className="absolute top-0 left-0 right-0 section-divider" />
 
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-to-r from-cyan-600/[0.06] via-violet-600/[0.08] to-fuchsia-600/[0.06] blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-to-r from-[#D4714E]/[0.06] via-[#D9A962]/[0.08] to-[#E8956F]/[0.06] blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
@@ -64,7 +64,7 @@ export const WorkflowSection = () => {
               initial={{ scaleX: 0 }}
               animate={isInView ? { scaleX: 1 } : {}}
               transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="h-px bg-gradient-to-r from-indigo-500/40 via-violet-500/50 to-fuchsia-500/40 origin-left"
+              className="h-px bg-gradient-to-r from-[#D4714E]/40 via-[#D9A962]/50 to-[#E8956F]/40 origin-left"
             />
             {/* Pulsing dots on connector */}
             {[0, 50, 100].map((pos, i) => (
@@ -73,7 +73,7 @@ export const WorkflowSection = () => {
                 initial={{ scale: 0 }}
                 animate={isInView ? { scale: 1 } : {}}
                 transition={{ duration: 0.4, delay: 0.6 + i * 0.2 }}
-                className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-violet-400/60 animate-dot-pulse"
+                className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#D4714E]/60 animate-dot-pulse"
                 style={{ left: `${pos}%`, animationDelay: `${i * 0.5}s` }}
               />
             ))}
@@ -89,12 +89,12 @@ export const WorkflowSection = () => {
             >
               <div className="relative mb-8">
                  {/* Outer ring */}
-                 <div className="absolute -inset-3 rounded-full border border-white/[0.06] group-hover:border-white/[0.12] transition-colors duration-500" />
+                 <div className="absolute -inset-3 rounded-full border border-[rgba(255,247,237,0.06)] group-hover:border-[rgba(212,113,78,0.15)] transition-colors duration-500" />
 
                  <motion.div
                    whileHover={{ scale: 1.1 }}
                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                   className="w-24 h-24 rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] flex items-center justify-center text-white z-10 relative group-hover:border-white/20 transition-all duration-500"
+                   className="w-24 h-24 rounded-full bg-[#121110] border border-[rgba(255,247,237,0.08)] flex items-center justify-center text-[#D6D3D1] z-10 relative group-hover:border-[#D4714E]/20 transition-all duration-500"
                  >
                     {step.icon}
                  </motion.div>
@@ -106,7 +106,7 @@ export const WorkflowSection = () => {
                  />
 
                  {/* Step number */}
-                 <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[var(--bg-primary)] border border-white/10 flex items-center justify-center text-xs font-medium text-white/50 z-20">
+                 <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#0C0A09] border border-[#D4714E]/20 flex items-center justify-center text-xs font-medium text-[#D4714E]/70 z-20">
                    {step.id}
                  </div>
               </div>
